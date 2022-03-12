@@ -1,4 +1,4 @@
-import { Nav, Anime } from "./components";
+import { Nav, Anime, Results } from "./components";
 import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Anime />} />
+        <Route path="/results/:name" element={<Results />} />
       </Routes>
     </div>
   );

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import AnimeItem from "./AnimeItem";
 
-const Anime = () => {
+const Results = () => {
+  const { name } = useParams();
+
   const [animeList, setAnimeList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getPopularAnime = async () => {
+  const getResults = async () => {
     setIsLoading(true);
-    const response = await fetch("https://api.jikan.moe/v4/top/anime");
+    const response = await fetch(`https://api.jikan.moe/v4/anime?q=${name}`);
     const data = await response.json();
 
     setAnimeList(data);
@@ -15,14 +18,11 @@ const Anime = () => {
   };
 
   useEffect(() => {
-    getPopularAnime();
-  }, []);
-
-  console.log(animeList);
+    getResults();
+  }, [name]);
 
   return (
     <div className="container mx-auto">
-      <h3 className="text-3xl mb-6">Popular Anime</h3>
       <div className="grid gap-4 grid-cols-9">
         {isLoading
           ? "loading..."
@@ -34,4 +34,4 @@ const Anime = () => {
   );
 };
 
-export default Anime;
+export default Results;
