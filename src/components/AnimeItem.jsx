@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AnimeItem = ({ item }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="hover:text-blue-600">
+    <div
+      className="hover:text-blue-600"
+      onClick={() => navigate(`/details/${item.mal_id}`)}
+    >
       <img
         className="rounded h-52 w-full cursor-pointer "
         src={item.images.jpg.image_url}

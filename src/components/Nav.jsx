@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Button from "./Button";
 
 const Nav = () => {
   const [name, setName] = useState("");
@@ -48,12 +49,7 @@ const Nav = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button
-            className=" bg-sky-600 px-3 text-white rounded "
-            type="submit"
-          >
-            Search
-          </button>
+          <Button text={"Search"} />
         </form>
       </div>
     </nav>

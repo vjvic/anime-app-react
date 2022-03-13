@@ -19,6 +19,7 @@ const Results = () => {
 
   useEffect(() => {
     getResults();
+    /* eslint-disable */
   }, [name]);
 
   return (

@@ -1,5 +1,5 @@
-import { Nav, Anime, Results } from "./components";
-import { Routes, Route, Link } from "react-router-dom";
+import { Nav, Anime, Results, AnimeDetails } from "./components";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Anime />} />
         <Route path="/results/:name" element={<Results />} />
+        <Route path="/details/:id" element={<AnimeDetails />} />
       </Routes>
     </div>
   );
